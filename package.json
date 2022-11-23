@@ -1,0 +1,142 @@
+{
+    "name": "clipboard-plugin",
+    "displayName": "clipboard-plugin",
+    "description": "剪切板插件",
+    "keywords": [
+        "vscode",
+        "plugin",
+        "demo"
+    ],
+    "version": "1.0.0",
+    "publisher": "fengdeyingzi",
+    "engines": {
+        "vscode": "^1.27.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "icon": "images/icon.png",
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./src/extension",
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "影子剪切板",
+            "properties": {
+                "vscodePluginDemo.yourName": {
+                    "type": "string",
+                    "default": "guest",
+                    "description": "风的影子"
+                }
+                
+            }
+        },
+        "commands": [
+           
+            {
+                "command": "extension.demo.copyFilePath",
+                "title": "复制文件(夹)"
+            },
+           
+            {
+                "command": "extension.demo.openWebview",
+                "title": "打开WebView"
+            },
+            {
+                "command": "extension.demo.showWelcome",
+                "title": "显示自定义欢迎页"
+            }
+        ],
+        "keybindings": [
+          
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "when": "editorFocus",
+                    "command": "extension.sayHello",
+                    "group": "navigation@6"
+                },
+                {
+                    "when": "editorFocus",
+                    "command": "extension.demo.copyFilePath",
+                    "group": "navigation@5"
+                },
+                {
+                    "when": "editorFocus && resourceLangId == javascript",
+                    "command": "extension.demo.testMenuShow",
+                    "group": "z_commands"
+                },
+                {
+                    "command": "extension.demo.openWebview",
+                    "group": "navigation"
+                }
+            ],
+            "editor/title": [
+                {
+                    "when": "editorFocus && resourceLangId == javascript",
+                    "command": "extension.demo.testMenuShow",
+                    "group": "navigation"
+                }
+            ],
+            "editor/title/context": [
+                {
+                    "when": "resourceLangId == javascript",
+                    "command": "extension.demo.testMenuShow",
+                    "group": "navigation"
+                }
+            ],
+            "explorer/context": [
+                {
+                    "command": "extension.demo.copyFilePath",
+                    "group": "navigation"
+                },
+                {
+                    "command": "extension.demo.openWebview",
+                    "group": "navigation"
+                }
+            ]
+        },
+        "snippets": [
+            {
+                "language": "javascript",
+                "path": "./snippets/javascript.json"
+            },
+            {
+                "language": "html",
+                "path": "./snippets/html.json"
+            }
+        ],
+        "viewsContainers": {
+            
+        },
+        "views": {
+            
+        },
+        "iconThemes": [
+         
+        ]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "eslint": "^4.11.0",
+        "@types/node": "^7.0.43",
+        "@types/mocha": "^2.2.42"
+    },
+    "license": "SEE LICENSE IN LICENSE.txt",
+    "bugs": {
+        "url": "https://github.com/fengdeyingzi/clipboard-plugin/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/fengdeyingzi/clipboard-plugin"
+    },
+    "homepage": "https://github.com/fengdeyingzi/clipboard-plugin"
+}
